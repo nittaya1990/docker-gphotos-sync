@@ -87,8 +87,8 @@ This allows you to temporarily interrupt it at any point and also intervene if i
 ```bash
 $ docker run -it --rm
     -v /path/to/config:/tmp/gphotos-cdp \
-    -v /path/do/downloads:/download \
-    jakewharton/gphotos-sync
+    -v /path/to/downloads:/download \
+    jakewharton/gphotos-sync:trunk \
     /app/sync.sh
 ```
 
@@ -102,9 +102,9 @@ To run the sync automatically on a schedule, pass a valid cron specifier as the 
 ```bash
 $ docker run -it --rm
     -v /path/to/config:/tmp/gphotos-cdp \
-    -v /path/do/download:/download \
+    -v /path/to/download:/download \
     -e "CRON=0 * * * *" \
-    jakewharton/gphotos-sync
+    jakewharton/gphotos-sync:trunk
 ```
 
 The above version will run every hour and download any new photos. For help creating a valid cron specifier, visit [cron.help][2].
